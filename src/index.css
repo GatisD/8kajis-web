@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+/* ======================================================
+   8kajis.lv — Tailwind v4 theme extension
+   ====================================================== */
+
+@theme {
+  /* Fonts */
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Colors */
+  --color-navy: #1b2b5e;
+  --color-navy-50: #eef1fb;
+  --color-teal: #00685d;
+  --color-teal-light: #00877a;
+  --color-teal-dark: #004d44;
+  --color-cta-orange: #e8813a;
+  --color-cta-orange-text: #1a0a00;
+  --color-sensor-bg: #0a0a0f;
+  --color-sensor-surface: #111118;
+  --color-sensor-purple: #9b7ede;
+  --color-sensor-mint: #00e5cc;
+  --color-brand: #00685d;
+
+  /* Animations */
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-float-slow: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+}
+
+/* ======================================================
+   8kajis.lv — Global CSS
+   Design tokens, typography, utility overrides
+   ====================================================== */
+
+:root {
+  /* E-veikals (light) */
+  --color-navy: #1b2b5e;
+  --color-teal: #00685d;
+  --color-teal-light: #00877a;
+  --color-orange: #e8813a;
+  --color-orange-text: #1a0a00;
+
+  /* Sensor dark */
+  --color-sensor-bg: #0a0a0f;
+  --color-sensor-surface: #111118;
+  --color-sensor-purple: #9b7ede;
+  --color-sensor-mint: #00e5cc;
+
+  /* Typography */
+  font-family: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #1b2b5e;
+}
+
+/* Focus rings — WCAG 2.1 AA */
+:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Smooth scroll — Lenis handles this but fallback */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Sensor dark theme utility */
+.sensor-theme {
+  background-color: var(--color-sensor-bg);
+  color: #e8e4f0;
+}
+
+/* Orange CTA — WCAG contrast enforced: #1A0A00 on #E8813A = 4.8:1 */
+.btn-orange {
+  background-color: var(--color-orange);
+  color: var(--color-orange-text);
+  font-weight: 700;
+}
+
+.btn-orange:hover {
+  background-color: #d97229;
+  color: var(--color-orange-text);
+}
+
+/* Prefers-reduced-motion global override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Product card */
+.product-card {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px -8px rgba(27, 43, 94, 0.15),
+    0 8px 16px -4px rgba(27, 43, 94, 0.1);
+}
+
+/* Octopus float animation */
+.octopus-float {
+  animation: octopus-float 4s ease-in-out infinite;
+}
+
+@keyframes octopus-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+/* Tentacle wiggle */
+.tentacle {
+  transform-origin: top center;
+}
+
+.tentacle-1 {
+  animation: tentacle-wiggle 3.8s ease-in-out infinite;
+}
+.tentacle-2 {
+  animation: tentacle-wiggle 4.1s ease-in-out 0.3s infinite;
+}
+.tentacle-3 {
+  animation: tentacle-wiggle 3.6s ease-in-out 0.6s infinite;
+}
+.tentacle-4 {
+  animation: tentacle-wiggle 4.3s ease-in-out 0.9s infinite;
+}
+.tentacle-5 {
+  animation: tentacle-wiggle 3.9s ease-in-out 1.2s infinite;
+}
+.tentacle-6 {
+  animation: tentacle-wiggle 4.0s ease-in-out 1.5s infinite;
+}
+.tentacle-7 {
+  animation: tentacle-wiggle 3.7s ease-in-out 1.8s infinite;
+}
+.tentacle-8 {
+  animation: tentacle-wiggle 4.2s ease-in-out 2.1s infinite;
+}
+
+@keyframes tentacle-wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Sparkle */
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+/* Scroll chevron */
+@keyframes chevron-bounce {
+  0%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(6px) translateX(-50%);
+  }
+}
+
+.chevron-bounce {
+  animation: chevron-bounce 1.5s ease infinite;
+}
+
+/* Wave patterns */
+@keyframes wave-move-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes wave-move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.wave-left {
+  animation: wave-move-left 20s linear infinite;
+}
+
+.wave-right {
+  animation: wave-move-right 20s linear infinite;
+}

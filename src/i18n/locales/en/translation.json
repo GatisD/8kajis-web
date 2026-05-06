@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "store": "Shop",
+    "sensory": "Sensory Room",
+    "about": "About Us",
+    "contact": "Contact",
+    "cart": "Cart"
+  },
+  "landing": {
+    "store_badge": "SHOP",
+    "store_h1": "Educational toys bridge theory and understanding",
+    "store_sub": "Educational toys for children's development that foster creativity and logical thinking.",
+    "store_cta": "Go to Shop",
+    "store_trust_shipping": "Free shipping above €100",
+    "store_trust_partner": "Beleduc partner",
+    "sensory_badge": "SENSORY ROOM",
+    "sensory_h1": "Bimini Sensory Room",
+    "sensory_sub": "A space for sensations and growth. In Ķekava, Nākotnes street 2.",
+    "sensory_cta": "Discover Bimini",
+    "sensory_method": "Snoezelen method",
+    "sensory_phone": "+371 20009028",
+    "choose_direction": "Choose your direction"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error. Please try again.",
+    "close": "Close",
+    "back": "Back"
+  },
+  "footer": {
+    "copyright": "© {{year}} 8kajis.lv. All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}
